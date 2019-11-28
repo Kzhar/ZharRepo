@@ -1,0 +1,107 @@
+NOTAS IMPORTANTES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Al utilizar zsh como editor, el path de cpctelera no se queda asignado. 
+Las instrucciones están en .bashrc, y habría que meterlas en .zshrc
+
+Utilizaré este documento como Caja de arena de todo lo que tenga que ver con la configuración de Manjaro.
+
+Para configurar impresora: Se puede hacer desde HP Device Manager pero desde CUPS Web Interface.
+***************************************************************************************************
+GNOME
+Alt+F4 Cerrar ventana 
+La pestaña de menú se puede configurar con Super+M (Botón Derecho en Menu=> Ajustes de Arc Menu
+Super+A Aplicaciones
+Super+ flechas ventanas
+Super+Numero (Abrir de la barra de favoritos)
+
+
+
+*******************************************************************************************
+-VIM
+Para abrir todos los documentos de Vim en pestañas: entrar en el directorio y utilizar:
+vim -p *
+Crtl+Alt+(RePag/AvPag) Moverse entre pestañas
+Crtl+N/P (Auto completar)
+
+.vimrc (Básico)
+set number
+syntax on
+set autoinden
+
+z80 syntax=> https://github.com/samsaga2/vim-z80
+Copiar el CONTENIDO de la carpeta en .vim
+*******************************************************************************************
+-GUAKE
+Crtl+(RePag/AvPag) Moverse entre pestañas
+*************************************************************************************************
+-SUBLIMETEXT 3
+z80 syntax=> https://github.com/NanoWar/z80asm-ti
+************************************************************************************************
+-BASH
+~ => Alt+4
+Shift+(RePag/AvPag) Página anterior/siguiente
+******************************************************************************************************
+PACMAN
+/etc/pacman.conf (abrir con sudo)
+Color
+
+******************************************************************************************************
+-ARCHLINUX ZSH PACKAGE
+
+Alias			Description
+
+pacin			Install specific package(s) from the repositories
+pacins			Install specific package not from the repositories but from a file
+pacre			Remove the specified package(s), retaining its configuration(s) and required dependencies
+pacrem			Remove the specified package(s), its configuration(s) and unneeded dependencies
+pacrep			Display information about a given package in the repositories
+pacreps			Search for package(s) in the repositories
+pacloc			Display information about a given package in the local database
+paclocs			Search for package(s) in the local database
+pacupd			Update and refresh the local package and ABS databases against repositories
+pacupg			Update the local database and upgrade packages
+pacinsd			Install given package(s) as dependencies of another package
+pacmir			Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
+
+Function				Description
+
+paclist					List all installed packages with a short description - Source
+paclsorphans			List all orphaned packages
+pacrmorphans			Delete all orphaned packages
+pacdisowned | less +F	List all disowned files in your system
+
+************************************************************************************************************
+-GIT
+Primeros pasos en git: 
+1.-Situarse en la carpeta donde está nuestro contenido 
+2.-Solo la primera vez hacer un git init
+3.-git add . (agregar todo)
+
+4.-git commit “nombre”
+5.-git commit -m “nombre” → primer commit
+6.-al hacer el primer commit -m te pedirá que configures el correo electrónico y el nombre
+7.- Vuelve a hacer git commit -m 
+8.- Cada vez que queramos guardar un cambio hacemos un commit (?)
+9.-Utilizar un remote add origin para conectar nuestro repositorio local con el github la url tiene que ser exactamente igual al url que creamos en el github → git remote add origin “https://github.com/...”
+10.-Hacemos el primer push → git push remote master
+
+11.-Desde el otro ordenador hacer un clone 
+
+13.-Cada vez que se modifique un archivo:
+	git status → ver cual se ha modificado
+	hacer un git add sobre ese archivos (o git add.)
+	hacer git commit -m  “mensaje”
+	hace git push origin master
+
+14.- Para actualizar el repositorio local al commit mas nuevo:
+	(git pull) → Si falla
+	Para copiarlo tal cual → git reset --hard Origin/master
+
+Comandos git:
+git branch → en que rama estoy
+git branch -a → muestra todas las ramas
+git checkout nombreDeLaRama → situarnos en una rama determinada
+
+*******************************************************************************************************
+DRAWIO
+
+
