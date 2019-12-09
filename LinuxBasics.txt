@@ -1,0 +1,30 @@
+Se suele definir el archivo como el lugar donde escribimos nuestros datos. En otros sistemas operativos se hace distinción entre archvios, directorios, dispositivos y otros componentes del sistema. En GNU/Linux, todo aquello que puede ser manipulado por el sistema es tratado como un archivo.
+Pero, si todo es un archivo, ¿el sistema operativo hace hace la distinción entre archivo regular, directorio, dispositivo, procedimiento, etc?. Muy simpe: todo archivo tiene lo que se llama "encabezado", que contiene información como: tipo, tamaño, fecha de acceso, modificación y mas. A través de este encabezado, GNU/Linux sabe cuando se trata de un archivo regular, directorio, dispositivo y así sucesivamente.
+Debido al gran número de distribuciones de Linux que existen, fueron determinados patrones sobre la estructura de Linux y la forma de manipular los archivos.
+Estos patrones constituyen la Linux Standard Base (LSB), basado en los estándares POSIX, SUS etc, y que contiene todas las características que un sistema Linux debe adoptar para mantener un nivel de compativilidad entre las diferentes distribuciones.
+Los sistemas de archivos de Linux y Unix se organizan en una estructura jerárquica, de tio árbol. El nivel más alto del sistema de archivos es / o directorio raiz (root). Todos los demás archivos y directorios esan bajo el directorio raiz.
+Por debajo del directorio raiz (/) hay un importante grupo de directorios común a la mayoría de distribuciones de GNU/Linux. A continuación hay una lista de los directorios que aparecen normalmente bajo el directorio raiz (/)
+(Directorios de Manjaro:)
+
+bin 			Binarios y otros archivos ejecutables importantes.
+boot			Ficheros de configuración del arranque, núcleos y otros ficheros necesarios para el arranque (boot) del equipo.
+desktopfs-pkgs.txt
+dev			Archivos del dispositivo (device), controlados normalmente por el sistema operativo y el administrador del sistema.
+etc			Archivo de configuración del sistema, scripts de arranque etc...
+home			Directorios iniciales, personales (home) para los diferentes usuarios.
+lib			Librerías del sistema.
+lib64			Librerías del sistema de 64 bits.
+lost+found		Utilizado por el sistema de archivos para guardar archivos recuperados después de que el sistema de coprovación de archvos haya sido ejecutado.
+mnt			Utilizado para montar sistemas de archivos externos. 
+opt			Software opcional o de terceros.
+proc			Proporciona información acerca de los procesos en ejecución.
+root			El directorio inicial de la cuenta del administrador. 
+rootfs-pkgs.txt
+run			Datos que algunas aplicaciones pueden necesitar almacenar durante su ejecuación y que no pueden ir tmp/ porque podrían ser borrados (introducido recientemente 2011)
+sbin			
+snap			
+srv			
+sys			
+tmp			
+usr			
+var			Datos variables, los archivos notablemente mas largos.
