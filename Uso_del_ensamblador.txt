@@ -1,0 +1,66 @@
+MACROS EN CPCTELERA (MIRAR SU ENSAMBLADOR)
+
+Macro: Abreviatura de macroinstrucción.
+	Es una serie de instrucciones que se almacenan para que se puedan ejecutar de manera secuencial mediante una sola llamada.
+	
+1.- Forma de una macro:
+
+.macro <nombreDeLaLlamada> _nombre, _iddato1, _iddato2, _iddato3, ..., _iddatoloquesea
+_nombre::
+	.db _iddato1
+	.db _iddato2
+	.db _iddato3
+	...
+	.db _iddatoloquesea
+.endm
+
+La macro solo existe en el código del ensamblador. No genera código en la memoria hasta que se hace una llamada, por lo tanto se puede llevar a un fichero.h.
+
+Como ejemplo podemos hacer una macro para generar los datos de un Personaje:
+
+.macro CreaPersonaje _name, _posx, _posy, _health, _color
+_name::
+	.db _posx
+	.db _posy
+	.db _health
+	.db _color
+.endm
+
+Y ahora podríamos crear un par de personajes uno el Player y otro Enemy;
+
+CrearPersonaje Player, 15, 12, 25, 0xFF
+CrearPersonaje Enemy, 80, 20, 30, 0xF0
+
+Lo que realmente equivaldría a escribir:
+
+Player:: .db 15, 12, 25, 0xFF
+Enemy:: .db 15, 12, 25, 0xFF
+
+Creando así, en una posición de memoria determinada, una serie de datos (contenidos en cada byte de memoria) correspondientes a cada personaje.
+
+Los datos se generan en el orden que están colocados dentro de la macro, y no en el orden en el que se definen en la linea .macro. Esto facilita el poder cambiar de orden los datos si lo necesitamos sin tocar nada a la hora de generar los datos.
+El problema sería que en este caso en las rutinas encargadas de tomar los datos lo estaríamos haciendo en el orden incorrecto.
+Lo bueno es que en el caso del Procesador Z80 existen las instrucciones IX e IY podemos acceder a los datos por medio de un puntero desde la dirección de estas de esta forma: 0(IX), 1(IX), ... 25(IX). Y una opción de acceso a estos datos que tampoco genera código, por lo que se pueden poner en un fichero.h (el mismo donde se define la macro, por ejemplo) y que nos facilita la vida es la utilización de constantes de este modo:
+
+d_posx = 0
+d_posy = 1
+d_health = 2
+d_color = 3
+sizeof_d =4 ;para cuando sea necesario utilizar el dato de la longitud de la serie de datos correspondiente.
+
+Y en la rutina que ejecute la obtención/escritura de esos datos (tras asignar a IX, por ejemplo, la dirección de Player, del primer byte de la serie de bytes en memoria que contienen los datos de Player) utilizar:
+
+d_posx(IX)
+d_posy(IX)
+d_health(IX)
+d_color(IX)
+
+
+
+
+
+
+
+
+
+
